@@ -3,7 +3,10 @@ import json
 import requests as re
 import base64
 import time
+"""
+https://developer.spotify.com/web-api/authorization-guide/#authorization_code_flow
 
+"""
 
 auth = None
 authurl = "https://accounts.spotify.com/api/token"
@@ -44,7 +47,7 @@ def _query_my_playlists(token):
     headers = _auth_header(token)
     headers['Content-Type'] = 'application/json'
 
-    #test= "https://api.spotify.com/v1/users/iplasmic/playlists/33ilPfrhjOvFnU81vtKMRL"
+    test= "https://api.spotify.com/v1/users/iplasmic/playlists/33ilPfrhjOvFnU81vtKMRL"
     r = re.get(test, headers=headers)
 
     #TODO: error checking
