@@ -3,6 +3,7 @@ import json
 import requests as re
 import base64
 import time
+import pprint
 """
 https://developer.spotify.com/web-api/authorization-guide/#authorization_code_flow
 
@@ -47,7 +48,7 @@ def _query_my_playlists(token):
     headers = _auth_header(token)
     headers['Content-Type'] = 'application/json'
 
-    test= "https://api.spotify.com/v1/users/iplasmic/playlists/33ilPfrhjOvFnU81vtKMRL"
+    test= "https://api.spotify.com/v1/users/iplasmic/playlists/33ilPfrhjOvFnU81vtKMRL/tracks"
     r = re.get(test, headers=headers)
 
     #TODO: error checking
@@ -66,8 +67,8 @@ def main():
     _update_token_time(data)
 
     output = _query_my_playlists(data)
-    print(output)
-
+    # pp = pprint.PrettyPrinter(indent=4)
+    # pp.pprint(len(output['items']))
     # NOTES: can't use the 'me' requests using this authentication method, however you can lookup users.
 
 
